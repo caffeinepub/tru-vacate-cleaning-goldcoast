@@ -20,6 +20,23 @@ import { EndOfLeasePage } from "./pages/services/EndOfLeasePage";
 import { OvenKitchenPage } from "./pages/services/OvenKitchenPage";
 import { VacateCleaningPage } from "./pages/services/VacateCleaningPage";
 import { WindowCleaningPage } from "./pages/services/WindowCleaningPage";
+import {
+  BroadbeachPage,
+  BurleighHeadsPage,
+  CoolangattaPage,
+  CoomeraPage,
+  HopeIslandPage,
+  LabradorPage,
+  MudgeerabaPage,
+  NerangPage,
+  PalmBeachPage,
+  RobinaPage,
+  RunawayBayPage,
+  SouthportPage,
+  SurfersParadisePage,
+  TweedHeadsPage,
+  VarsityLakesPage,
+} from "./pages/suburbs/index";
 
 // Root route with layout
 const rootRoute = createRootRoute({
@@ -89,6 +106,83 @@ const contactRoute = createRoute({
   component: ContactPage,
 });
 
+// Suburb routes
+const surfersParadiseRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/suburbs/surfers-paradise",
+  component: SurfersParadisePage,
+});
+const southportRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/suburbs/southport",
+  component: SouthportPage,
+});
+const broadbeachRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/suburbs/broadbeach",
+  component: BroadbeachPage,
+});
+const robinaRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/suburbs/robina",
+  component: RobinaPage,
+});
+const varsityLakesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/suburbs/varsity-lakes",
+  component: VarsityLakesPage,
+});
+const mudgeerabaRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/suburbs/mudgeeraba",
+  component: MudgeerabaPage,
+});
+const coomeraRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/suburbs/coomera",
+  component: CoomeraPage,
+});
+const hopeIslandRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/suburbs/hope-island",
+  component: HopeIslandPage,
+});
+const runawayBayRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/suburbs/runaway-bay",
+  component: RunawayBayPage,
+});
+const labradorRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/suburbs/labrador",
+  component: LabradorPage,
+});
+const nerangRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/suburbs/nerang",
+  component: NerangPage,
+});
+const burleighHeadsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/suburbs/burleigh-heads",
+  component: BurleighHeadsPage,
+});
+const palmBeachRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/suburbs/palm-beach",
+  component: PalmBeachPage,
+});
+const coolangattaRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/suburbs/coolangatta",
+  component: CoolangattaPage,
+});
+const tweedHeadsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/suburbs/tweed-heads",
+  component: TweedHeadsPage,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   servicesRoute,
@@ -101,6 +195,22 @@ const routeTree = rootRoute.addChildren([
   bathroomCleaningRoute,
   aboutRoute,
   contactRoute,
+  // Suburb routes
+  surfersParadiseRoute,
+  southportRoute,
+  broadbeachRoute,
+  robinaRoute,
+  varsityLakesRoute,
+  mudgeerabaRoute,
+  coomeraRoute,
+  hopeIslandRoute,
+  runawayBayRoute,
+  labradorRoute,
+  nerangRoute,
+  burleighHeadsRoute,
+  palmBeachRoute,
+  coolangattaRoute,
+  tweedHeadsRoute,
 ]);
 
 const router = createRouter({ routeTree });

@@ -213,6 +213,24 @@ const suburbs = [
   "Tweed Heads",
 ];
 
+const suburbSlugs: Record<string, string> = {
+  "Surfers Paradise": "surfers-paradise",
+  Southport: "southport",
+  Broadbeach: "broadbeach",
+  Robina: "robina",
+  "Varsity Lakes": "varsity-lakes",
+  Mudgeeraba: "mudgeeraba",
+  Coomera: "coomera",
+  "Hope Island": "hope-island",
+  "Runaway Bay": "runaway-bay",
+  Labrador: "labrador",
+  Nerang: "nerang",
+  "Burleigh Heads": "burleigh-heads",
+  "Palm Beach": "palm-beach",
+  Coolangatta: "coolangatta",
+  "Tweed Heads": "tweed-heads",
+};
+
 export function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -497,20 +515,35 @@ export function HomePage() {
       </section>
 
       {/* ── AREAS SERVED ── */}
-      <section className="bg-secondary/30 py-12">
+      <section
+        className="bg-secondary/30 py-12"
+        aria-labelledby="areas-served-heading"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display font-bold text-2xl text-foreground text-center mb-6">
+          <h2
+            id="areas-served-heading"
+            className="font-display font-bold text-2xl text-foreground text-center mb-2"
+          >
             Vacate Cleaning Across All Gold Coast Suburbs
           </h2>
+          <p className="text-center text-muted-foreground text-sm mb-6">
+            We clean in these Gold Coast suburbs — click your suburb to learn
+            more about our local service.
+          </p>
           <div className="flex flex-wrap justify-center gap-2">
-            {suburbs.map((suburb) => (
-              <span
-                key={suburb}
-                className="px-3 py-1.5 bg-white rounded-full text-sm text-foreground border border-border shadow-xs"
-              >
-                {suburb}
-              </span>
-            ))}
+            {suburbs.map((suburb) => {
+              const slug = suburbSlugs[suburb];
+              return (
+                <a
+                  key={suburb}
+                  href={`/suburbs/${slug}`}
+                  data-ocid="suburb.link"
+                  className="px-3 py-1.5 bg-white rounded-full text-sm text-foreground border border-border shadow-xs hover:bg-primary hover:text-white hover:border-primary transition-colors"
+                >
+                  {suburb}
+                </a>
+              );
+            })}
           </div>
           <p className="text-center text-muted-foreground text-sm mt-4">
             Not on the list? Call us — we likely service your area too.{" "}
